@@ -1,4 +1,4 @@
-module gate_desing(a,b,y);
+module gate_design(a,b,y);
 
     input a,b;
     output y;

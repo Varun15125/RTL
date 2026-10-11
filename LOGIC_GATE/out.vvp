@@ -4,51 +4,44 @@
 :vpi_module "system";
 :vpi_module "v2005_math";
 :vpi_module "va_math";
-S_011B3170 .scope module, "gate_desing_tb" "gate_desing_tb" 2 3;
+S_01103170 .scope module, "gate_design_tb" "gate_design_tb" 2 1;
  .timescale 0 0;
-v011BEE90_0 .var "a", 0 0;
-v011BEEE8_0 .var "b", 0 0;
-v011BEF40_0 .net "y", 0 0, L_011B3280; 1 drivers
-S_011B31F8 .scope module, "dut" "gate_desing" 2 9, 3 1, S_011B3170;
+v01104688_0 .var "a", 0 0;
+v01108940_0 .var "b", 0 0;
+v01108998_0 .net "y", 0 0, L_01103280; 1 drivers
+S_011031F8 .scope module, "dut" "gate_design" 2 6, 3 1, S_01103170;
  .timescale 0 0;
-L_011B3280 .functor AND 1, v011BEE90_0, v011BEEE8_0, C4<1>, C4<1>;
-v011B4598_0 .net "a", 0 0, v011BEE90_0; 1 drivers
-v011B45F0_0 .net "b", 0 0, v011BEEE8_0; 1 drivers
-v011B4648_0 .alias "y", 0 0, v011BEF40_0;
-    .scope S_011B3170;
+L_01103280 .functor AND 1, v01104688_0, v01108940_0, C4<1>, C4<1>;
+v01107B60_0 .net "a", 0 0, v01104688_0; 1 drivers
+v011045D8_0 .net "b", 0 0, v01108940_0; 1 drivers
+v01104630_0 .alias "y", 0 0, v01108998_0;
+    .scope S_01103170;
 T_0 ;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEE90_0, 0, 0;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEEE8_0, 0, 0;
-    %delay 1, 0;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEE90_0, 0, 0;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEEE8_0, 0, 1;
-    %delay 1, 0;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEE90_0, 0, 1;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEEE8_0, 0, 0;
-    %delay 1, 0;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEE90_0, 0, 1;
-    %ix/load 0, 1, 0;
-    %assign/v0 v011BEEE8_0, 0, 1;
-    %delay 1, 0;
-    %vpi_call 2 32 "$finish";
+    %set/v v01104688_0, 0, 1;
+    %set/v v01108940_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01104688_0, 0, 1;
+    %set/v v01108940_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01104688_0, 1, 1;
+    %set/v v01108940_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01104688_0, 1, 1;
+    %set/v v01108940_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 26 "$display", "Simulation finished successfully.";
+    %vpi_call 2 27 "$finish";
     %end;
     .thread T_0;
-    .scope S_011B3170;
+    .scope S_01103170;
 T_1 ;
-    %vpi_call 2 35 "$dumpfile", "dump.vcd";
-    %vpi_call 2 36 "$dumpvars", 1'sb0, S_011B3170;
+    %vpi_call 2 32 "$dumpfile", "dump.vcd";
+    %vpi_call 2 33 "$dumpvars", 1'sb0, S_01103170;
     %end;
     .thread T_1;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";
     "<interactive>";
-    "gate_desing_tb.v";
-    "gate_desing.v";
+    "gate_design_tb.v";
+    "gate_design.v";
