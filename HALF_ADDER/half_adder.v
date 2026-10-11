@@ -7,3 +7,4 @@ module half_adder (a,b,sum,carry);
    and a1 (carry,a,b);
 endmodule  
 
+
