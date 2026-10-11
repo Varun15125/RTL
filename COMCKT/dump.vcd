@@ -1,0 +1,37 @@
+$date
+	Sun Oct 11 23:46:19 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module TB $end
+$var wire 1 ! LED $end
+$var reg 1 " P $end
+$var reg 1 # S $end
+$var reg 1 $ V $end
+$scope module DUT $end
+$var wire 1 ! LED $end
+$var wire 1 % P $end
+$var wire 1 & S $end
+$var wire 1 ' V $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0'
+0&
+1%
+0$
+0#
+1"
+0!
+$end
+#10
+1!
+1$
+1'
+#20

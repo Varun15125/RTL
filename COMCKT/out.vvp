@@ -1,0 +1,47 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_013F4478 .scope module, "TB" "TB" 2 1;
+ .timescale 0 0;
+v00A03D20_0 .net "LED", 0 0, L_00A03EF0; 1 drivers
+v00A03D78_0 .var "P", 0 0;
+v00A03DD0_0 .var "S", 0 0;
+v00A03E28_0 .var "V", 0 0;
+S_013F4500 .scope module, "DUT" "comckt" 2 6, 3 2, S_013F4478;
+ .timescale 0 0;
+L_013F4588 .functor NOT 1, v00A03DD0_0, C4<0>, C4<0>, C4<0>;
+L_013F3278 .functor AND 1, L_013F4588, v00A03D78_0, C4<1>, C4<1>;
+L_00A03EF0 .functor AND 1, L_013F3278, v00A03E28_0, C4<1>, C4<1>;
+v013F3170_0 .alias "LED", 0 0, v00A03D20_0;
+v013FEF18_0 .net "P", 0 0, v00A03D78_0; 1 drivers
+v013FEF70_0 .net "S", 0 0, v00A03DD0_0; 1 drivers
+v013F31C8_0 .net "V", 0 0, v00A03E28_0; 1 drivers
+v013F3220_0 .net *"_s0", 0 0, L_013F4588; 1 drivers
+v00A03CC8_0 .net *"_s2", 0 0, L_013F3278; 1 drivers
+    .scope S_013F4478;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "dump.vcd";
+    %vpi_call 2 15 "$dumpvars", 1'sb0;
+    %end;
+    .thread T_0;
+    .scope S_013F4478;
+T_1 ;
+    %set/v v00A03DD0_0, 0, 1;
+    %set/v v00A03D78_0, 1, 1;
+    %set/v v00A03E28_0, 0, 1;
+    %delay 10, 0;
+    %set/v v00A03DD0_0, 0, 1;
+    %set/v v00A03D78_0, 1, 1;
+    %set/v v00A03E28_0, 1, 1;
+    %delay 10, 0;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "Combinational_tb.v";
+    "Combinational_ckt.v";
